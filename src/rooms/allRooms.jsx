@@ -111,7 +111,7 @@ export default function AllRooms() {
                             Type
                         </Dropdown.Item>
                     </Dropdown>
-                    <input type="text" placeholder='shearch' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
+                    <input type="text" placeholder='search' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
                 </div>
             </div>
             <div className='w-full h-full flex justify-center items-start'>

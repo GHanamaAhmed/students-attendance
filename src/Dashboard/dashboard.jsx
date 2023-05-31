@@ -193,7 +193,7 @@ export default memo(function Dashboard() {
                   Absence
                   </Dropdown.Item>
                 </Dropdown>
-                <input type="text" placeholder='shearch' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
+                <input type="text" placeholder='search' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
                  </div>
             </div>
             <button onClick={sendToAllStudent} className='bg-secondary  rounded-lg py-3 bg-opacity-40 hover:bg-indigo-400 hover:bg-opacity-50  px-5'>Send to all students</button>

@@ -229,7 +229,7 @@ export default memo(function Room() {
                             Specialst
                         </Dropdown.Item>
                     </Dropdown>
-                    <input type="text" placeholder='shearch' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
+                    <input type="text" placeholder='search' onChange={handle} className='w-1/2 border-none placeholder:opacity-50 bg-transparent focus:ring-0 py-2' />
                 </div>
             </div>
             <table className="w-full rounded-3xl shadow-sm overflow-hidden text-sm text-left text-gray-500 dark:text-gray-400">
