@@ -127,6 +127,8 @@ export default function Signup(params) {
           dispatch(setAcount(res.data?.data))
           toast.update(wait, { render: "Success", type: "success", isLoading: false, autoClose: true });
           await new Promise((resolve) => setTimeout(resolve, 1000))
+          localStorage.setItem("email",req.email)
+          localStorage.setItem("password",req.password)
           navigate("/Student-Attendance/Dashboard/");
         } else {
           toast.update(wait, { render: res.data?.mes, type: "error", isLoading: false, autoClose: true });
@@ -134,7 +136,6 @@ export default function Signup(params) {
       }).catch(err => {
         toast.update(wait, { render: err, type: "error", isLoading: false, autoClose: true });
       });
-
     }
   }
   function validateEmail(email) {
