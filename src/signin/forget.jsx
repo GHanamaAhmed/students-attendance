@@ -50,7 +50,7 @@ export default function Forget() {
         setIsLoading(true)
         const wait = toast.loading("Wait few minut")
         if (validateEmailUsername(emailuser.current.value)) {
-            axios.post("https://simpleapi-p29y.onrender.com/teacher/authResetPassword", { email: emailuser.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+            axios.post(`${process.env.API_URL}/teacher/authResetPassword`, { email: emailuser.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
                 .then(async res => {
                     if (res.data.res) {
                         toast.update(wait, { render: "Success", type: "success", isLoading: false, autoClose: 2000 });
@@ -81,7 +81,7 @@ export default function Forget() {
                             <div className="flex w-full flex-col items-center gap-3">
                                 <div className="rounded-full p-3 bg-sky-400 bg-opacity-20">
                                     <div className="rounded-full p-1 bg-sky-400 bg-opacity-30">
-                                        <img src="../img/icons8-key.svg" alt="" width={40} />
+                                        <img src="/img/icons8-key.svg" alt="" width={40} />
                                     </div>
                                 </div>
                                 <p className="text-2xl font-semibold">Forget password?</p>

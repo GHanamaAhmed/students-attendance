@@ -10,7 +10,7 @@ const fetchRooms = createAsyncThunk(
                 email: account.email,
                 password: account.password
             }
-            const response = await axios.post("https://simpleapi-p29y.onrender.com/teacher/rooms", req, {
+            const response = await axios.post(`${process.env.API_URL}/teacher/rooms`, req, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }

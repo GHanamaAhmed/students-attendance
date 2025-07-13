@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 export default function Signin() {
   const account = useSelector((state) => state.account)
   const dispatch = useDispatch();
-  const [isLoading,setIsLoading]=useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [state, setState] = useState({
     invalidinpute:
       "border-gray-300 text-gray-900 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:border-blue-600",
@@ -31,8 +31,10 @@ export default function Signin() {
         email: emailuser.current.value,
         password: password.current.value,
       };
+      console.log("api url", process.env.API_URL,
+      );
       data = await axios.post(
-        "https://simpleapi-p29y.onrender.com/teacher/signin",
+        `${process.env.API_URL}/teacher/signin`,
         req,
         {
           headers: {
@@ -44,8 +46,8 @@ export default function Signin() {
         dispatch(setAcount(data.data.data))
         toast.update(wait, { render: "Success", type: "success", isLoading: false, autoClose: 1500 });
         await new Promise((resolve) => setTimeout(resolve, 1500))
-        localStorage.setItem("email",req.email)
-        localStorage.setItem("password",req.password)
+        localStorage.setItem("email", req.email)
+        localStorage.setItem("password", req.password)
         navigate("/Student-Attendance/Dashboard");
       } else {
         toast.update(wait, { render: data.data.mes, type: "error", isLoading: false, delay: 1000, autoClose: true });
@@ -88,7 +90,7 @@ export default function Signin() {
     <div className="flex items-center justify-center">
       <div className="w-5/6 md:w-3/5">
         <div className="mb-5 dark:text-white">
-          <img className="my-4" src="../img/LogoQr.svg" alt="" />
+          <img className="my-4" src="/img/LogoQr.svg" alt="" />
           <p className="text-zinc-500 mt-3 font-serif dark:text-slate-400">
             Welcome,please entre details.
           </p>

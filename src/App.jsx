@@ -49,7 +49,7 @@ function App() {
     };
     try {
       await axios.post(
-        "https://simpleapi-p29y.onrender.com/teacher/signin",
+        `${process.env.API_URL}/teacher/signin`,
         req,
         {
           headers: {

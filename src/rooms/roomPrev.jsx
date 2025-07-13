@@ -32,7 +32,7 @@ export default memo(function RoomPrev() {
         setFilter(studentList.filter((e) => (!shearch || (typeShearch == "Name" && !`${e?.lastname} ${e?.firstname}`.toLowerCase().indexOf(shearch.toLowerCase())) || (typeShearch == "Name" && !`${e?.firstname} ${e?.lastname}`.toLowerCase().indexOf(shearch.toLowerCase())) || (typeShearch == "Sex" && !`${e?.sex}`.toLowerCase().indexOf(shearch.toLowerCase())) || (typeShearch == "Specialst" && !`${e?.specialist}`.toLowerCase().indexOf(shearch.toLowerCase())))))
     }, [studentList, shearch, typeShearch,showQr]);
     const fetchSession = async () => {
-        await axios.get(`https://simpleapi-p29y.onrender.com/student/session/${location.state.room["_id"]}`, {
+        await axios.get(`${process.env.API_URL}/student/session/${location.state.room["_id"]}`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -56,7 +56,7 @@ export default memo(function RoomPrev() {
             idRoom: location.state.room['_id'],
             qrcode: store.email + uuid()
         }
-        await axios.post(`https://simpleapi-p29y.onrender.com/teacher/refrQrcode`, req, {
+        await axios.post(`${process.env.API_URL}/teacher/refrQrcode`, req, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -74,7 +74,7 @@ export default memo(function RoomPrev() {
     useLayoutEffect(() => {
         if (!isVisit) {
             setIsVisit(() => true)
-            const socket = io("https://simpleapi-p29y.onrender.com/rooms", {
+            const socket = io(`${process.env.API_URL}/rooms`, {
                 transports: ['websocket'],
                 autoConnect: false,
                 auth: {
@@ -101,7 +101,7 @@ export default memo(function RoomPrev() {
             password: store.password,
             idroom: location.state.room["_id"]
         }
-        await axios.post("https://simpleapi-p29y.onrender.com/teacher/stoproom", req, {
+        await axios.post(`${process.env.API_URL}/teacher/stoproom`, req, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -118,7 +118,7 @@ export default memo(function RoomPrev() {
             password: store.password,
             idroom: location.state.room["_id"]
         }
-        await axios.post("https://simpleapi-p29y.onrender.com/teacher/startroom", req, {
+        await axios.post(`${process.env.API_URL}/teacher/startroom`, req, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -152,7 +152,7 @@ export default memo(function RoomPrev() {
             idroom: location.state.room["_id"],
             idstudent: idstudent
         }
-        await axios.delete("https://simpleapi-p29y.onrender.com/teacher/removeStudent", {
+        await axios.delete(`${process.env.API_URL}/teacher/removeStudent`, {
             data: req,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -172,7 +172,7 @@ export default memo(function RoomPrev() {
             idroom: location.state.room["_id"],
             idstudent: studentListRemove
         }
-        await axios.delete("https://simpleapi-p29y.onrender.com/teacher/removeStudents", {
+        await axios.delete(`${process.env.API_URL}/teacher/removeStudents`, {
             data: req,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

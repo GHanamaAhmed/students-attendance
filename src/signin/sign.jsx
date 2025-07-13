@@ -18,7 +18,7 @@ export default memo( function Sign() {
         password: account.password,
       };
       await axios.post(
-        "https://simpleapi-p29y.onrender.com/teacher/signin",
+        `${process.env.API_URL}/teacher/signin`,
         req,
         {
           headers: {
@@ -44,7 +44,7 @@ export default memo( function Sign() {
         <Route path="/*" element={<Navigate to={"signin"} />} />
       </Routes>
       <div className="bg-gray-100 hidden md:flex justify-center items-center dark:bg-slate-400">
-        <img src="../img/nobgsh.png" alt="" />
+        <img src="/img/nobgsh.png" alt="" />
       </div>
       <ToastContainer />
     </div>

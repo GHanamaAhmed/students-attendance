@@ -20,7 +20,7 @@ export default memo(function Header() {
     return (
         <>
             <div className='flex justify-around px-5 py-5 md:hidden'>
-                <img className="w-40" src="../img/LogoQr.svg" alt="" />
+                <img className="w-40" src="/img/LogoQr.svg" alt="" />
                 <div className='flex gap-2'>
                     <Dropdown inline={true} label={<Avatar rounded={true} />} placement='auto'>
                         <Dropdown.Header>
@@ -36,7 +36,7 @@ export default memo(function Header() {
                             { }
                         </Dropdown.Item>
                     </Dropdown>
-                    <img src="../img/Line.svg" alt="" onClick={toggleMenu} />
+                    <img src="/img/Line.svg" alt="" onClick={toggleMenu} />
                 </div>
             </div>
             <ListHeader className={`duration-300 h-full absolute top-0 ${showMenu ? "translate-x-0" : "-translate-x-full"}`} />

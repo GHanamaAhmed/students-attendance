@@ -62,24 +62,24 @@ export default function Signup(params) {
     let req = { email: email.current.value };
     if (validateEmail(email.current.value) && sp.current.value != "" && company.current.value != "" && validateName(fname.current.value) && validatepassword(p.current.value) && validateName(lname.current.value) && p.current.value == rp.current.value) {
       res = await axios.post(
-        "https://simpleapi-p29y.onrender.com/teacher/auth",
+        `${process.env.API_URL}/teacher/auth`,
         req,
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         }
-      ).then(res=>{
+      ).then(res => {
         if (res.data.res) {
           toast.update(wait, { render: "Send code", type: "success", isLoading: false, autoClose: 2000 })
           setIshedden((prevValue) => !prevValue)
         } else {
           toast.update(wait, { render: res.data.mes, type: "error", isLoading: false, data: 2000, autoClose: 2000 })
         }
-      }).catch(err=>{
+      }).catch(err => {
         toast.update(wait, { render: err, type: "error", isLoading: false, data: 2000, autoClose: 2000 })
       });
-     
+
     } else {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       toast.update(wait, { render: "chek your information", type: "error", isLoading: false, data: 2000, autoClose: 2000 })
@@ -87,12 +87,14 @@ export default function Signup(params) {
     setIsLoading(false)
   }
   const fetchspecialist = async () => {
-    await axios.get("https://simpleapi-p29y.onrender.com/specialist", {
+    await axios.get(`${process.env.API_URL}/specialist`, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     }).then(res => {
-      setSpE((e) => res.data)
+      setSpE((e) => res.data?.length || [
+        { specialist: "No specialist" }
+      ])
     }).catch(err => {
       console.log(err);
     })
@@ -115,7 +117,7 @@ export default function Signup(params) {
     };
     if (req.password == rp.current.value) {
       res = await axios.post(
-        "https://simpleapi-p29y.onrender.com/teacher/signup",
+        `${process.env.API_URL}/teacher/signup`,
         req,
         {
           headers: {
@@ -127,8 +129,8 @@ export default function Signup(params) {
           dispatch(setAcount(res.data?.data))
           toast.update(wait, { render: "Success", type: "success", isLoading: false, autoClose: true });
           await new Promise((resolve) => setTimeout(resolve, 1000))
-          localStorage.setItem("email",req.email)
-          localStorage.setItem("password",req.password)
+          localStorage.setItem("email", req.email)
+          localStorage.setItem("password", req.password)
           navigate("/Student-Attendance/Dashboard/");
         } else {
           toast.update(wait, { render: res.data?.mes, type: "error", isLoading: false, autoClose: true });
@@ -347,7 +349,7 @@ export default function Signup(params) {
       </div>
       <div className={`w-5/6 md:w-3/5 ${isHidden ? "" : "hidden"}`}>
         <div className="mb-3 dark:text-white">
-          <img className="my-4" src="../img/LogoQr.svg" alt="" />
+          <img className="my-4" src="/img/LogoQr.svg" alt="" />
           <p className="text-zinc-500 mt-3 font-serif">
             Welcome,please enter details.
           </p>

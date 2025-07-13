@@ -124,7 +124,7 @@ export default memo(function Dashboard() {
       student: st,
       module: currentModule
     }
-    await axios.post("https://simpleapi-p29y.onrender.com/teacher/sendtoallstudents", req, {
+    await axios.post(`${process.env.API_URL}/teacher/sendtoallstudents`, req, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }

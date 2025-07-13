@@ -16,7 +16,7 @@ export default memo( function Nav() {
     }
     return (
         <div className='flex justify-around items-center py-4 w-full md:bg-secondary'>  
-            <img className="hidden md:block w-52" src="../img/LogoQr.svg" alt="" />
+            <img className="hidden md:block w-52" src="/img/LogoQr.svg" alt="" />
             <div className='gap-2 hidden md:block'>
                 <Dropdown inline={true} label={<Avatar rounded={true} />} placement='auto'>
                     <Dropdown.Header>

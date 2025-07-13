@@ -41,7 +41,7 @@ export default function Reseter() {
         setIsLoading(true)
         const wait = toast.loading("Wait few minut")
         if (code.current.value != "") {
-            axios.post("https://simpleapi-p29y.onrender.com/teacher/forgetpassword", { email: location.state.email, code: code.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+            axios.post(`${process.env.API_URL}/teacher/forgetpassword`, { email: location.state.email, code: code.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
                 .then(async res => {
                     if (res.data.res) {
                         toast.update(wait, { render: "Code successfuly", type: "success", isLoading: false, autoClose: 1000 });
@@ -67,7 +67,7 @@ export default function Reseter() {
             toast.update(wait, { render: `wait 60s stay ${new Date(newTime - time).getSeconds()}s`, type: "success", isLoading: false, autoClose: 1000 });
             return
         }
-        axios.post("https://simpleapi-p29y.onrender.com/teacher/authResetPassword", { email: location.state.email }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+        axios.post(`${process.env.API_URL}/teacher/authResetPassword`, { email: location.state.email }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
             .then(async res => {
                 if (res.data.res) {
                     setTime(() => Date.now())

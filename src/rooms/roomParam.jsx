@@ -18,7 +18,7 @@ export default function RoomParam() {
     const type = useRef()
     const [cursor,setCursor]=useState("cursor-not-allowed")
     const fetchspecialist = async () => {
-        await axios.get("https://simpleapi-p29y.onrender.com/specialist", {
+        await axios.get(`${process.env.API_URL}/specialist`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -52,7 +52,7 @@ export default function RoomParam() {
           if (type.current.value != "Type") {
             req.type = type.current.value;
           }
-        await axios.post("https://simpleapi-p29y.onrender.com/teacher/createroom", req, {
+        await axios.post(`${process.env.API_URL}/teacher/createroom`, req, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }

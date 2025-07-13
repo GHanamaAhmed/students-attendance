@@ -85,7 +85,7 @@ export default function Tabel({ seassions, students, currentModule, account, roo
       absent: absent,
       module: currentModule
     }
-    await axios.post("https://simpleapi-p29y.onrender.com/teacher/sendMessage", req, {
+    await axios.post(`${process.env.API_URL}/teacher/sendMessage`, req, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }

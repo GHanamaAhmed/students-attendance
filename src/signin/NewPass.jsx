@@ -94,7 +94,7 @@ export default function NewPass() {
         setIsLoading(true)
         const wait = toast.loading("Wait few minut")
         if (validatepassword(p.current.value)) {
-            axios.post("https://simpleapi-p29y.onrender.com/teacher/resetPaswword", { email: location.state.email, code: location.state.code, rpassword: p.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+            axios.post(`${process.env.API_URL}/teacher/resetPaswword`, { email: location.state.email, code: location.state.code, rpassword: p.current.value }, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
                 .then(async res => {
                     if (res.data.res) {
                         toast.update(wait, { render: "Success", type: "success", isLoading: false, autoClose: 1000 });

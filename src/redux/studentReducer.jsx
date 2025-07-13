@@ -7,7 +7,7 @@ const fetchStudents = createAsyncThunk(
             const req = {
                 specialist: arr,
             }
-            const response = await axios.post("https://simpleapi-p29y.onrender.com/teacher/getStudents", req, {
+            const response = await axios.post(`${process.env.API_URL}/teacher/getStudents`, req, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }

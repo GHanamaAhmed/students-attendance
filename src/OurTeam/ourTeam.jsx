@@ -13,7 +13,7 @@ export default function OurTeam() {
             <div className="bg-white block rounded-lg shadow-lg">
               <div className="relative overflow-hidden bg-no-repeat bg-cover">
                 <img
-                  src="../img/photo_2023-05-22_11-59-47.jpg"
+                  src="/img/photo_2023-05-22_11-59-47.jpg"
                   className="w-full rounded-t-lg"
                 />
                 <a href="#!">
@@ -43,7 +43,7 @@ export default function OurTeam() {
             <div className="bg-white block rounded-lg shadow-lg">
               <div className="relative overflow-hidden bg-no-repeat bg-cover">
                 <img
-                  src="../img/photo_٢٠٢٢-٠٨-١٢_٢٢-٣٦-٤٥.jpg"
+                  src="/img/photo_٢٠٢٢-٠٨-١٢_٢٢-٣٦-٤٥.jpg"
                   className="w-full rounded-t-lg"
                 />
                 <a href="#!">
@@ -72,7 +72,7 @@ export default function OurTeam() {
             <div className="bg-white block rounded-lg shadow-lg">
               <div className="relative overflow-hidden bg-no-repeat bg-cover">
                 <img
-                  src="../img/photo_2023-05-22_09-06-52.jpg"
+                  src="/img/photo_2023-05-22_09-06-52.jpg"
                   className="w-full rounded-t-lg"
                 />
                 <a href="#!">

@@ -32,7 +32,7 @@ export default function AllRooms() {
             password: store.password,
             idroom: id
         }
-        await axios.delete("https://simpleapi-p29y.onrender.com/teacher/deletroom", {
+        await axios.delete(`${process.env.API_URL}/teacher/deletroom`, {
             data: req,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -52,7 +52,7 @@ export default function AllRooms() {
                 password: store.password,
                 idroom: selectForDelete
             }
-            await axios.delete("https://simpleapi-p29y.onrender.com/teacher/deletrooms", {
+            await axios.delete(`${process.env.API_URL}/teacher/deletrooms`, {
                 data: req,
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -83,7 +83,7 @@ export default function AllRooms() {
         }
     }
     const fetchSession = async (id) => {
-        await axios.get(`https://simpleapi-p29y.onrender.com/student/session/${id}`, {
+        await axios.get(`${process.env.API_URL}/student/session/${id}`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
