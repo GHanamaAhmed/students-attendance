@@ -92,8 +92,20 @@ export default function Signup(params) {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     }).then(res => {
+      //                 "Math", "Physics", "Chemistry", "Biology", "Computer Science", "History", "Geography", "English", "French","Other"
+
       setSpE((e) => res.data?.length || [
-        { specialist: "No specialist" }
+        { specialist: "Math" },
+        { specialist: "Physics" },
+        { specialist: "Chemistry" },
+        { specialist: "Biology" },
+        { specialist: "Computer Science" },
+        { specialist: "History" },
+        { specialist: "Geography" },
+        { specialist: "English" },
+        { specialist: "French" },
+        { specialist: "Other" }
+
       ])
     }).catch(err => {
       console.log(err);
