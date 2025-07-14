@@ -131,7 +131,7 @@ export default function Signup(params) {
           await new Promise((resolve) => setTimeout(resolve, 1000))
           localStorage.setItem("email", req.email)
           localStorage.setItem("password", req.password)
-          navigate("/Student-Attendance/Dashboard/");
+          navigate("/Dashboard/");
         } else {
           toast.update(wait, { render: res.data?.mes, type: "error", isLoading: false, autoClose: true });
         }

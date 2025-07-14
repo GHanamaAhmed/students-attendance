@@ -89,7 +89,7 @@ export default function AllRooms() {
             }
         }).then(res => {
             if (res.data.res) {
-                navigate("/Student-Attendance/rooms/prevRoom", { state: res.data, replace: true })
+                navigate("/rooms/prevRoom", { state: res.data, replace: true })
             }
         }).catch(err => {
             console.log(err);

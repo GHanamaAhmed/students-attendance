@@ -30,14 +30,14 @@ function App() {
   useEffect(() => {
     let email = localStorage.getItem("email")
     let password = localStorage.getItem("password")
-    console.log(location.pathname== "/Student-Attendance/sign/signup" );
-    if (location.pathname == "/Student-Attendance/sign/signup" || location.pathname == "/Student-Attendance/sign/signin") {
+    console.log(location.pathname== "/sign/signup" );
+    if (location.pathname == "/sign/signup" || location.pathname == "/sign/signin") {
      
     }else{
       if (email && password) {
         send(email, password)
       } else {
-        navigate("/Student-Attendance/sign/signin");
+        navigate("/sign/signin");
       }
     }
     setShow(true)
@@ -59,13 +59,13 @@ function App() {
       ).then(async data => {
         if (data.data.res) {
           dispatch(setAcount(data.data.data))
-          navigate("/Student-Attendance/Dashboard");
+          navigate("/Dashboard");
         } else {
-          navigate("/Student-Attendance/sign/signin");
+          navigate("/sign/signin");
         }
-      }).catch(err => { navigate("/Student-Attendance/sign/signin"); });
+      }).catch(err => { navigate("/sign/signin"); });
     } catch (e) {
-      navigate("/Student-Attendance/sign/signin");
+      navigate("/sign/signin");
     }
   }
   if (!show) {
@@ -85,18 +85,18 @@ function App() {
                   className={"hidden md:block w-fit col-start-1 h-full col-end-2"}
                 />
                 <Routes>
-                  <Route exact path="/Student-Attendance/Dashboard/*" element={<Dashboard />} />
-                  <Route exact path="/Student-Attendance/Rooms/*" element={<Rooms />} />
-                  <Route exact path="/Student-Attendance/CreateRoom/*" element={<CreateRoom />} />
-                  <Route exact path="/Student-Attendance/ourteam/*" element={<OurTeam />} />
-                  <Route path="/*" element={<Navigate to="/Student-Attendance/sign" />} />
+                  <Route exact path="/Dashboard/*" element={<Dashboard />} />
+                  <Route exact path="/Rooms/*" element={<Rooms />} />
+                  <Route exact path="/CreateRoom/*" element={<CreateRoom />} />
+                  <Route exact path="/ourteam/*" element={<OurTeam />} />
+                  <Route path="/*" element={<Navigate to="/sign" />} />
                 </Routes>
               </div>
             </>
           }
         />
-        <Route exact path="/Student-Attendance/sign/*" element={<Sign />} />
-        <Route path="/*" element={<Navigate to="/Student-Attendance/sign" />} />
+        <Route exact path="/sign/*" element={<Sign />} />
+        <Route path="/*" element={<Navigate to="/sign" />} />
       </Routes>
 
     </>

@@ -48,7 +48,7 @@ export default function Signin() {
         await new Promise((resolve) => setTimeout(resolve, 1500))
         localStorage.setItem("email", req.email)
         localStorage.setItem("password", req.password)
-        navigate("/Student-Attendance/Dashboard");
+        navigate("/Dashboard");
       } else {
         toast.update(wait, { render: data.data.mes, type: "error", isLoading: false, delay: 1000, autoClose: true });
       }

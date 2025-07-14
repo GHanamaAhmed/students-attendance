@@ -24,7 +24,7 @@ export default memo(function ListHeader({ className }) {
                             </div>
                             <li>
                                 <Link
-                                    to={"/Student-Attendance/Dashboard/"}
+                                    to={"/Dashboard/"}
                                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                                 >
                                     <svg
@@ -43,7 +43,7 @@ export default memo(function ListHeader({ className }) {
                             </li>
                             <li>
                                 <Link
-                                    to={"/Student-Attendance/rooms/"}
+                                    to={"/rooms/"}
                                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                                 >
                                     <svg
@@ -63,7 +63,7 @@ export default memo(function ListHeader({ className }) {
                         <ul className="py-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
                             <li>
                                 <Link
-                                    to={"/Student-Attendance/ourteam/"}
+                                    to={"/ourteam/"}
                                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                                 >
                                     <svg
@@ -82,7 +82,7 @@ export default memo(function ListHeader({ className }) {
                             </li>
                             <li onClick={() => {
                                 dispatch(logout())
-                                navigate("/Student-Attendance/sign/")
+                                navigate("/sign/")
                             }}>
                                 <div
 
