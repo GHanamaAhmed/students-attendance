@@ -92,8 +92,6 @@ export default function Signup(params) {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     }).then(res => {
-      //                 "Math", "Physics", "Chemistry", "Biology", "Computer Science", "History", "Geography", "English", "French","Other"
-
       setSpE((e) => res.data?.length || [
         { specialist: "Math" },
         { specialist: "Physics" },

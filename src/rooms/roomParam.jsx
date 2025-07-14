@@ -23,8 +23,18 @@ export default function RoomParam() {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         }).then(res => {
-            setSp((e) => res.data?.lenth || [
-                "Math", "Physics", "Chemistry", "Biology", "Computer Science", "History", "Geography", "English", "French", "Other"
+            setSp((e) => res.data?.length || [
+                { specialist: "Math" },
+                { specialist: "Physics" },
+                { specialist: "Chemistry" },
+                { specialist: "Biology" },
+                { specialist: "Computer Science" },
+                { specialist: "History" },
+                { specialist: "Geography" },
+                { specialist: "English" },
+                { specialist: "French" },
+                { specialist: "Other" }
+
             ])
         }).catch(err => {
             console.log(err);
